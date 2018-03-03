@@ -22,9 +22,15 @@ class Board{
     //Insert
     bool Insert(int passedID, int passedX, int passedY);
 
+    //Find
+    bool Find(int targetPlayerID);
+
+    //Remove
+    bool Remove(int targetPlayerID);
+
     private:
     //Playing board
-    map <Position, int> board;
+    map<Position, int> board;
 
     //X Bound
     int xMax;
@@ -32,11 +38,8 @@ class Board{
     //Y Bound
     int yMax;
 
-    //Player list
-    set<Player> playerList;
-
-    //ID List
-    set<int> IDList;
+    //map holding the player, searchable by its ID
+    map<int, Player> IDList;
 
     bool checkInsertionPreconditions(int passedID, int passedX, int passedY);
 };

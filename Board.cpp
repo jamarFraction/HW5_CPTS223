@@ -16,17 +16,12 @@ bool Board::Insert(int passedID, int passedX, int passedY){
     //check preconditions for insertion
     if(checkInsertionPreconditions(passedID, passedX, passedY) == true){
 
-        //create new player
-        Player newPlayer(passedID, passedX, passedY);
-
-        //add player to the player list
-        playerList.insert(newPlayer);
-
-        //add the Player's ID to the ID list
-        IDList.insert(newPlayer.GetID()); 
-
+        //insert the ID + player into the list
+        IDList.insert(pair<int, Player>(passedID, Player(passedID, passedX, passedY)));
+       
         //insert position into the board map
-        board.insert(pair<Position, int>(newPlayer.GetPosition(), 1));
+        //1 for space occupied
+        board.insert(pair<Position, int>(Position(passedX, passedY), 1));
 
         return true; 
 
@@ -35,7 +30,6 @@ bool Board::Insert(int passedID, int passedX, int passedY){
     return false;
 
 }
-
 
 bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
 
@@ -46,7 +40,7 @@ bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
     //function returns true if all preconditions for insertion are met, false otherwise 
 
     //check for the number of players exceeding M
-    if(playerList.size() >= (xMax + 1)){
+    if(IDList.size() >= (xMax + 1)){
 
         cout << "Error: Maximum number of players reached. Unable to insert new player" <<  endl;
         cin.get();
@@ -55,12 +49,12 @@ bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
 
     }
 
-    //check to see if the passed ID already exists
+    //check to see if the passed ID already exists in the list
     //iterator used for find
-    set<int>::iterator setIt = IDList.find(passedID);
+    map<int, Player>::iterator mapIt = IDList.find(passedID); 
 
 
-    if(setIt != IDList.end()){
+    if(mapIt != IDList.end()){
         
         cout << "Error: PlayerID already exists. Unable to insert new player" <<  endl;
         cin.get();
@@ -69,16 +63,12 @@ bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
         
     }
 
-    //check for empty space
-    //create a temporary position with the passed location info
-    Position tempPosition(passedX, passedY);
 
+    //check for empty space
     //utilize iterator for checking that the position is empty
-    map<Position, int>::iterator mapIt;
+    map<Position, int>::iterator boardMapIt = board.find(Position(passedX, passedY));;
     
-    mapIt = board.find(tempPosition);
-    
-    if(mapIt != board.end()){
+    if(boardMapIt != board.end()){
         
         cout << "Error: Insertion location is not empty. Unable to insert new player" <<  endl;
         cin.get();
@@ -89,4 +79,44 @@ bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
     
     //all neccesary conditions passed
     return true;
+}
+
+bool Board::Find(int targetPlayerID){
+
+    //use default stl::map find function
+    map<int, Player>::iterator mapIt = this->IDList.find(targetPlayerID);
+
+
+    if(mapIt != this->IDList.end()){
+
+        return true;
+    }
+    
+    //target not in ID set
+    return false;
+
+
+}
+
+bool Board::Remove(int targetPlayerID){
+
+    //check for playerID existence
+    if(Find(targetPlayerID) == false){
+
+        return false;
+
+    }
+
+    //target ID exists in the lists, so time to remove
+    //set iterator to target ID
+    map<int, Player>::iterator mapIt = IDList.find(targetPlayerID);
+
+    //remove the player from its space on the board
+    board.erase(mapIt->second.GetPosition());
+
+    //remove the id + Player from the IDList
+    IDList.erase(mapIt);
+
+    return true;
+
 }

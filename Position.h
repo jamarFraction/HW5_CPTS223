@@ -15,7 +15,9 @@ class Position{
 
 };
 
-//overloaded operator needed for class use as map key
-bool operator<(const Position &lhs, const Position &rhs);
+    //overloaded operator needed for class use as map key
+    bool operator<(const Position &lhs, const Position &rhs);
+
+
 
 #endif

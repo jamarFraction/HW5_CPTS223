@@ -7,7 +7,7 @@ class Player{
 
     public:
     //Constructor
-    Player(int IDNumber, int passedXPos, int passedYPos);
+    Player(int IDNumber = -1, int passedXPos = -1, int passedYPos = -1);
 
     //Getter for ID
     int GetID();
