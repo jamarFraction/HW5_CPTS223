@@ -11,3 +11,25 @@ Player::Player(int passedID, int passedXPosition, int passedYPosition){
 }
 
 Player::~Player(){}
+
+int Player::GetID(){
+
+    return this->IDNumber;
+
+}
+
+Position Player::GetPosition() const{
+
+    return this->playerPosition;
+}
+
+bool operator<(const Player &lhs, const Player &rhs){
+
+    //will result in 0, 1, 2, 3 ordering
+    if(lhs.GetPosition().x < rhs.GetPosition().y){
+
+        return true;
+    }
+
+    return false;
+}

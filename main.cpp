@@ -14,6 +14,7 @@ int main(void){
 
     newboard.Insert(4, 2, 3);
 
+    
     newboard.Insert(1, 2, 1);
 
 

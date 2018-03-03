@@ -16,14 +16,24 @@ bool Board::Insert(int passedID, int passedX, int passedY){
     //check preconditions for insertion
     if(checkInsertionPreconditions(passedID, passedX, passedY) == true){
 
-        IDList.insert(passedID);
+        //create new player
+        Player newPlayer(passedID, passedX, passedY);
+
+        //add player to the player list
+        playerList.insert(newPlayer);
+
+        //add the Player's ID to the ID list
+        IDList.insert(newPlayer.GetID()); 
+
+        //insert position into the board map
+        board.insert(pair<Position, int>(newPlayer.GetPosition(), 1));
+
         return true; 
 
     }
 
     return false;
 
-    
 }
 
 
@@ -48,6 +58,7 @@ bool Board::checkInsertionPreconditions(int passedID, int passedX, int passedY){
     //check to see if the passed ID already exists
     //iterator used for find
     set<int>::iterator setIt = IDList.find(passedID);
+
 
     if(setIt != IDList.end()){
         
