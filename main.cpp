@@ -1,3 +1,7 @@
+//Jamar Fraction
+//CPTS223 
+//HW5 - Game Board
+
 #include <iostream>
 #include "Board.h"
 

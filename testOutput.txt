@@ -1,0 +1,88 @@
+Error: PlayerID: 3 already exists. Unable to insert new player. Press enter..
+
+Error: Insertion location (9, 8) is not empty. Unable to insert new player. Press enter..
+
+Player ID: 7 is being removed. Press enter..
+
+ID Number: 1. Position: 3, 2
+ID Number: 2. Position: 4, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 9, 3
+ID Number: 5. Position: 6, 3
+ID Number: 6. Position: 8, 2
+ID Number: 8. Position: 9, 8
+Press enter..
+
+Player ID: 8 is being removed. Press enter..
+
+ID Number: 1. Position: 3, 2
+ID Number: 2. Position: 4, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 9, 8
+ID Number: 5. Position: 6, 3
+ID Number: 6. Position: 8, 2
+Press enter..
+
+Error: Position: (6, 3) is not within the permitted move set (horizontal, vertical, or any diagonal). Press enter..
+
+ID Number: 1. Position: 3, 2
+ID Number: 2. Position: 4, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 9, 8
+ID Number: 5. Position: 6, 3
+ID Number: 6. Position: 8, 2
+Press enter..
+
+ID Number: 1. Position: 3, 2
+ID Number: 2. Position: 3, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 9, 8
+ID Number: 5. Position: 6, 3
+ID Number: 6. Position: 8, 2
+Press enter..
+
+Player ID: 1 is being removed. Press enter..
+
+ID Number: 2. Position: 3, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 3, 2
+ID Number: 5. Position: 6, 3
+ID Number: 6. Position: 8, 2
+Press enter..
+
+Player ID: 6 is being removed. Press enter..
+
+ID Number: 2. Position: 3, 3
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 8, 2
+ID Number: 5. Position: 6, 3
+Press enter..
+
+Player ID: 2 is being removed. Press enter..
+
+ID Number: 3. Position: 4, 6
+ID Number: 4. Position: 8, 2
+ID Number: 5. Position: 3, 3
+Press enter..
+
+Player ID: 3 is being removed. Press enter..
+
+ID Number: 4. Position: 4, 6
+ID Number: 5. Position: 3, 3
+Press enter..
+
+ID Number: 4. Position: 4, 6
+ID Number: 5. Position: 4, 3
+Press enter..
+
+Player ID: 5 is being removed. Press enter..
+
+ID Number: 4. Position: 4, 3
+Press enter..
+
+
+
+
+
+
+
