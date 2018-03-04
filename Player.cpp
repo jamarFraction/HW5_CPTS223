@@ -23,6 +23,14 @@ Position Player::GetPosition() const{
     return this->playerPosition;
 }
 
+void Player::SetPosition(int passedX, int passedY){
+
+    this->playerPosition.x = passedX;
+    this->playerPosition.y = passedY;
+
+
+}
+
 bool operator<(const Player &lhs, const Player &rhs){
 
     //will result in 0, 1, 2, 3 ordering

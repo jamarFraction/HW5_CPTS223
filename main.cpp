@@ -5,24 +5,53 @@ using namespace std;
 
 int main(void){
 
+    Board B(1000000);	// specifies that the game board size is 1000000 x 1000000 
 
-    //cout << "Ready" << endl;
-    
-    Board newboard(20);
+	// the following is a sequence of calls to Board class methods assuming
+	// 	the input example (m=10,n=8) given in the programming assignment.
 
-    newboard.Insert(1, 2, 3);
+	B.Insert(1,3,2);	// assumed syntax: Insert(ID, x, y)
+	B.Insert(2,4,3);
+	B.Insert(3,4,6);
+	B.Insert(4,5,7);
+	B.Insert(5,6,3);
+	B.Insert(6,8,2);
+	B.Insert(7,9,3);
+	B.Insert(8,9,8);
 
-    newboard.Insert(4, 2, 4);
+	B.Insert(3,7,6);	// should fail because player 3 is already there
 
-    newboard.Remove(1);
+	B.Insert(10,9,8);	// should fail because 9,8 is occupied already
+	
+	B.MoveTo(4,9,3);	//assumed syntax: MoveTo(ID,x,y) // removes 7 in the process
+	B.PrintByID();
 
-    newboard.Insert(1, 4, 7);
+	B.MoveTo(4,9,8);	// removes 8
+	B.PrintByID();
+	
+	B.MoveTo(4,6,3); // should fail because move to 6,3 is from 4's current position is not valid
+	B.PrintByID();
 
-    newboard.Insert(3, 2, 4);
+	B.MoveTo(2,3,3);
+	B.PrintByID();
 
-    cout << newboard.Find(2) << "\n" << newboard.Find(4) << endl;
+	B.MoveTo(4,3,2);	// removes 1
+	B.PrintByID();
 
+	B.MoveTo(4,8,2);	// removes 6
+	B.PrintByID();
 
+	B.MoveTo(5,3,3);	// removes 2
+	B.PrintByID();
+
+	B.MoveTo(4,4,6);	// removes 3
+	B.PrintByID();
+
+	B.MoveTo(5,4,3);	
+	B.PrintByID();
+
+	B.MoveTo(4,4,3);	// removes 5
+	B.PrintByID();
 
     return 0;
 }

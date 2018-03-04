@@ -6,6 +6,7 @@
 #include <map>
 #include <set>
 #include <stdlib.h>
+#include <math.h>
 #include "Player.h"
 
 using namespace std;
@@ -28,6 +29,12 @@ class Board{
     //Remove
     bool Remove(int targetPlayerID);
 
+    //PrintByID
+    void PrintByID();
+
+    //MoveTo
+    bool MoveTo(int playerID, int xDestination, int yDestination);
+
     private:
     //Playing board
     map<Position, int> board;
@@ -42,6 +49,8 @@ class Board{
     map<int, Player> IDList;
 
     bool checkInsertionPreconditions(int passedID, int passedX, int passedY);
+
+    bool checkRemovalPreconditions(int passedID, int passedX, int passedY);
 };
 
 #endif

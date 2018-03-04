@@ -14,6 +14,8 @@ class Player{
 
     //Getter for position
     Position GetPosition() const;
+
+    void SetPosition(int passedX, int passedY);
     
     //Destructor
     ~Player();

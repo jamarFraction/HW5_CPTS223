@@ -10,6 +10,8 @@ class Position{
 
     ~Position();
 
+    void SetPosition(int passedX, int passedY);
+
     int x;
     int y;
 
